@@ -1,0 +1,167 @@
+<!-- Title: Menghitung Bola -->
+
+<h3>Deskripsi</h3>
+
+<p>
+  Pak Dengkek adalah seorang produsen bola.
+  Untuk membantu pekerjaannya, ia telah memesan sebuah mesin yang dapat menghitung banyak bola yang dapat ia buat dalam sehari.
+  Dengan mesin tersebut, Pak Dengklek hanya perlu memasukkan semua bola yang telah ia buat, kemudian mesin akan menghitung dan mengeluarkan sebuah angka yang menyatakan banyaknya bola yang telah masuk ke dalam mesin tersebut.
+</p>
+
+<p>
+  Setelah mesin diterima, Pak Dengklek mendengar rumor bahwa mesin tersebut terkadang menghitung bola dengan tidak tepat.
+  Agar dapat melakukan komplain seandainya mesin bermasalah, Pak Dengklek akan merekam sebuah video yang menunjukkan kinerja dari mesin yang diterima.
+</p>
+
+<p>
+  Di dalam video tersebut, Pak Dengklek berencana untuk memasukkan $Q$ buah bola ke dalam mesin satu per satu dan memeriksa apakah angka yang dikeluarkan sesuai dengan banyak bola yang sudah masuk.
+  Lebih detailnya, Pak Dengklek akan melakukan hal-hal berikut.
+</p>
+<ol>
+  <li>Definisikan $x$ sebagai banyaknya bola yang berada di dalam mesin. Pada awalnya, $x$ bernilai $0$.</li>
+  <li>Ulangi langkah berikut sebanyak $Q$ kali.
+  <ol type="a">
+    <li>Masukkan sebuah bola ke dalam mesin dan nilai $x$ berubah menjadi $x + 1$.</li>
+    <li>Jika mesin mengeluarkan angka yang benar, yaitu $x$, maka lanjutkan proses ini.</li>
+    <li>Jika tidak, maka keluarkan semua bola yang ada di dalam mesin, dan nilai $x$ diatur ulang menjadi $0$.</li>
+  </ol>
+  </li>
+</ol>
+
+<p>
+  Saat merekam video tersebut, bisa saja mesin selalu mengeluarkan angka dengan benar, bisa juga selalu mengeluarkan angka yang salah.
+</p>
+
+<p>
+  Karena Pak Dengklek sibuk, ia meminta bantuan Anda untuk merekam video tersebut.
+  Bantulah Pak Dengklek untuk menentukan apakah hasil perhitungan mesin benar setiap kali sebuah bola dimasukkan!
+</p>
+
+<h3>Batasan</h3>
+
+<ul>
+  <li>$1 \leq Q \leq 10\;000$</li>
+</ul>
+
+<h3>Subsoal</h3>
+
+<ol>
+  <li>(10 poin) Dijamin bahwa mesin selalu mengeluarkan angka yang benar.</li>
+  <li>(10 poin) Dijamin bahwa mesin selalu mengeluarkan angka yang salah.</li>
+  <li>(15 poin) Dijamin bahwa mesin selalu mengeluarkan angka $1$.</li>
+  <li>(65 poin) Tidak ada batasan tambahan.</li>
+</ol>
+
+<h3>Informasi Tipe Soal</h3>
+
+<p>
+  Soal ini bertipe "interaktif".
+  Pada soal ini Anda akan berinteraksi dengan program penguji melalui standar masukan (stdin) dan standar keluaran (stdout).
+  Perhatikan interaksi di bawah ini dengan saksama.
+</p>
+
+<h3>Interaksi</h3>
+
+<p>
+  Pada awalnya, Anda akan diberikan sebuah bilangan $Q$ dalam format berikut:
+</p><pre>
+Q
+</pre>
+
+<p>
+  Kemudian sebanyak $Q$ kali, Anda akan memasukkan sebuah bola dan diberikan sebuah bilangan $B$ dalam format berikut:
+</p><pre>
+B
+</pre>
+
+<p>
+  Ini artinya mesin mengeluarkan angka $B$.
+  Dijamin nilai $B$ ini muat dalam integer $32$ bit bertanda.
+  Untuk setiap masukan tersebut, keluarkan sebuah string $S$ yang bernilai <code>BENAR</code> jika mesin mengeluarkan angka yang benar, dan <code>SALAH</code> jika sebaliknya.
+  Keluarkan dalam format berikut:
+</p><pre>
+S
+</pre>
+
+<p>
+  Jika Anda mengeluarkan $S$ yang tidak sesuai, maka Anda akan mendapatkan Wrong Answer pada kasus uji tersebut.
+  Anda akan mendapatkan Accepted jika semua $S$ yang Anda keluarkan sesuai.
+</p>
+
+<h3>Contoh Interaksi</h3>
+
+<table>
+  <tr>
+    <th>Masukan</th>
+    <th>Keluaran</th>
+    <th>Penjelasan</th>
+  </tr>
+  <tr>
+    <td><pre>4</pre></td>
+    <td></td>
+    <td>Ini berarti Anda akan memasukkan $4$ bola ke dalam mesin.</td>
+  </tr>
+  <tr>
+    <td><pre>1</pre></td>
+    <td></td>
+    <td>Anda memasukkan sebuah bola dan mesin mengeluarkan angka $1$.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><pre>BENAR</pre></td>
+    <td>Karena sekarang ada $1$ bola yang berada di dalam mesin, maka mesin mengeluarkan angka yang benar.</td>
+  </tr>
+  <tr>
+    <td><pre>2</pre></td>
+    <td></td>
+    <td>Anda memasukkan sebuah bola dan mesin mengeluarkan angka $2$.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><pre>BENAR</pre></td>
+    <td>Karena sekarang ada $2$ bola yang berada di dalam mesin, maka mesin mengeluarkan angka yang benar.</td>
+  </tr>
+  <tr>
+    <td><pre>5</pre></td>
+    <td></td>
+    <td>Anda memasukkan sebuah bola dan mesin mengeluarkan angka $5$.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><pre>SALAH</pre></td>
+    <td>
+      Karena sekarang ada $3$ bola yang berada di dalam mesin, maka mesin mengeluarkan angka yang salah.
+      Anda akan mengeluarkan semua bola yang sudah dimasukkan.
+    </td>
+  </tr>
+  <tr>
+    <td><pre>1</pre></td>
+    <td></td>
+    <td>Anda memasukkan sebuah bola dan mesin mengeluarkan angka $1$</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><pre>BENAR</pre></td>
+    <td>
+      Sekarang di dalam mesin hanya ada $1$ bola. Dengan demikian, mesin mengeluarkan angka yang benar.
+    </td>
+  </tr>
+  <tr>
+    <td>(selesai)</td>
+    <td>(selesai)</td>
+    <td>Interaksi berakhir, semua keluaran Anda sesuai, dan Anda mendapatkan Accepted pada kasus uji ini.</td>
+  </tr>
+</table>
+
+<h3>Peringatan</h3>
+
+<p>
+  Selalu lakukan <em>flush</em> setiap kali setelah program Anda mengeluarkan keluaran.
+</p>
+
+<ul>
+  <li>Untuk library <code>stdio.h</code> (<code>cstdio</code>):<pre>
+fflush(stdout);</pre></li>
+  <li>Untuk library <code>iostream</code>:<pre>
+std::cout << std::flush;</pre></li>
+</ul>

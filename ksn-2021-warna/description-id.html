@@ -1,0 +1,156 @@
+<!-- Title: Mewarnai Bola -->
+
+<h3>Deskripsi</h3>
+
+<p>
+  Terdapat $N$ bola yang dinomori dari $1$ sampai $N$.
+  Bola-bola tersebut berbentuk identik namun dapat terbuat dari bahan yang berbeda-beda.
+  Agar mudah diidentifikasi, Pak Dengklek akan mewarnai bola-bola tersebut sehingga bola dengan bahan berbeda mempunyai warna yang berbeda, dan bola dengan bahan yang sama mempunyai warna yang sama.
+</p><p>
+  Untuk membedakan satu bola dengan bola lainnya, Pak Dengklek dapat menggunakan alat yang bernama Bolanalisa.
+  Namun, alat ini hanya bisa dipakai paling banyak $Q$ kali.
+  Dalam sekali pemakaian, Pak Dengklek memilih dua buah bilangan bulat $L$ dan $R$ ($1 \le L \le R \le N$), kemudian alat tersebut akan memberi tahu banyaknya bahan berbeda dari bola $L$, $L+1$, $\ldots$, $R$.
+</p><p>
+  Setelah alat tersebut digunakan, Pak Dengklek akan mewarnai masing-masing bola dengan salah satu dari $N$ warna yang tersedia, yaitu salah satu dari warna $1$, warna $2$, $\ldots$, warna $N$.
+  Pak Dengklek meminta bantuan kepada Anda untuk menggunakan alat tersebut kemudian mewarnai bola-bolanya.
+  Apabila terdapat lebih dari satu cara pewarnaan, Anda dapat mewarnai dengan pewarnaan mana pun.
+</p>
+
+<h3>Batasan</h3>
+
+<ul>
+  <li>$2 \le N \le 1000$</li>
+</ul>
+
+<h3>Subsoal</h3>
+
+<ol>
+  <li>&nbsp;&nbsp;(8 poin) $Q = 10\;000$, bola-bola dengan bahan yang sama mempunyai nomor yang berurutan.</li>
+  <li>&nbsp;&nbsp;(7 poin) $Q = 2000$, bola-bola dengan bahan yang sama mempunyai nomor yang berurutan.</li>
+  <li>(19 poin) $Q = 2000$, terdapat paling banyak $3$ bahan berbeda.</li>
+  <li>(14 poin) $Q = 2000$, terdapat paling banyak $4$ bahan berbeda.</li>
+  <li>(12 poin) $Q = 2000$, terdapat setidaknya $N - 1$ bahan berbeda.</li>
+  <li>(21 poin) $Q = 10\;000$, $N \le 100$</li>
+  <li>(19 poin) $Q = 10\;000$</li>
+</ol>
+
+<h3>Informasi Tipe Soal</h3>
+
+<p>
+  Soal ini bertipe "interaktif".
+  Pada soal ini Anda akan berinteraksi dengan program penguji melalui standar masukan (stdin) dan standar keluaran (stdout).
+  Perhatikan interaksi di bawah ini dengan saksama.
+</p>
+
+<h3>Interaksi</h3>
+
+<p>
+  Pada awalnya, Anda akan diberikan sebuah bilangan bulat $T$ yang menyatakan nomor subsoal, lalu Anda akan diberikan nilai $N$ dan $Q$ dalam format berikut:
+</p><pre>
+T
+N Q
+</pre>
+
+<p>Kemudian, sebanyak tidak lebih dari $Q$ kali, Anda dapat menghasilkan keluaran dalam format berikut:</p>
+
+<pre>
+? L R
+</pre>
+
+<p>
+  Ini berarti Anda memberikan nilai $L$ dan $R$ ke alat tersebut.
+  Nilai $L$ dan $R$ harus memenuhi $1 \le L \le R \le N$.
+  Untuk setiap keluaran tersebut, banyaknya bahan berbeda (dinotasikan dengan $X$) akan diberikan oleh alat melalui masukan dengan format berikut:
+</p>
+
+<pre>
+X
+</pre>
+
+<p>
+  Pada akhirnya, Anda dapat memberikan jawaban dengan menghasilkan keluaran dengan format berikut:
+</p>
+
+<pre>
+! A<sub>1</sub> A<sub>2</sub> … A<sub>N</sub>
+</pre>
+
+<p>
+  Ini berarti Anda mewarnai bola $1$, bola $2$, $\ldots$, bola $N$ dengan warna $A_1$, $A_2$, $\ldots$, $A_N$ secara berturut-turut.
+</p>
+
+<p>
+  Apabila Anda bisa mewarnai bola dengan benar tanpa menggunakan alat lebih dari $Q$ kali, maka Anda akan mendapatkan Accepted.
+  Apabila Anda memberikan pewarnaan yang salah, menggunakan alat sebanyak lebih dari $Q$ kali, atau memberikan masukan dengan format yang salah, maka Anda akan mendapatkan Wrong Answer.
+</p>
+
+<h3>Contoh Interaksi</h3>
+
+<table>
+  <tr>
+    <th>Masukan</th>
+    <th>Keluaran</th>
+    <th>Penjelasan</th>
+  </tr>
+  <tr>
+    <td><pre>1
+5 10000</pre></td>
+    <td></td>
+    <td>Ini berarti Anda akan diuji untuk subsoal pertama dengan mewarnai $5$ buah bola dan bisa menggunakan alat paling banyak $10\;000$ kali.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><pre>? 1 5</pre></td>
+    <td>Anda menanyakan banyaknya bahan berbeda dari semua bola.</td>
+  </tr>
+  <tr>
+    <td><pre>2</pre></td>
+    <td></td>
+    <td>Alat tersebut menjawab bahwa terdapat $2$ bahan berbeda dari semua bola.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><pre>? 1 3</pre></td>
+    <td>Anda menanyakan banyaknya bahan berbeda dari bola $1$, bola $2$, dan bola $3$.</td>
+  </tr>
+  <tr>
+    <td><pre>1</pre></td>
+    <td></td>
+    <td>Alat tersebut menjawab bahwa semua bahan dari bola $1$, bola $2$, dan bola $3$ adalah sama.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><pre>? 2 4</pre></td>
+    <td>Anda menanyakan banyaknya bahan berbeda dari bola $2$, bola $3$, dan bola $4$.</td>
+  </tr>
+  <tr>
+    <td><pre>2</pre></td>
+    <td></td>
+    <td>Alat tersebut menjawab bahwa terdapat dua bahan berbeda dari bola $2$, bola $3$, dan bola $4$.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><pre>! 1 1 1 2 2</pre></td>
+    <td>Anda mewarnai bola $1$ sampai $5$ dengan warna $1$, $1$, $1$, $2$, dan $2$ secara berturut-turut.</td>
+  </tr>
+  <tr>
+    <td>(selesai)</td>
+    <td>(selesai)</td>
+    <td>Interaksi berakhir, jawaban tersebut benar, dan Anda mendapatkan Accepted pada kasus uji ini.</td>
+  </tr>
+</table>
+
+Pewarnaan $2$, $2$, $2$, $1$, dan $1$ juga akan memberikan jawaban yang konsisten dari alat, sehingga pewarnaan ini juga akan mendapatkan Accepted.
+
+<h3>Peringatan</h3>
+
+<p>
+  Selalu lakukan <em>flush</em> setiap kali setelah program Anda mengeluarkan keluaran.
+</p>
+
+<ul>
+  <li>Untuk library <code>stdio.h</code> (<code>cstdio</code>):<pre>
+fflush(stdout);</pre></li>
+  <li>Untuk library <code>iostream</code>:<pre>
+std::cout << std::flush;</pre></li>
+</ul>

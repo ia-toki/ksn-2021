@@ -1,0 +1,137 @@
+<!-- Title: Lautan Biner -->
+
+<h3>Deskripsi</h3>
+
+<p>
+  Kepulauan Semiliar terkenal akan lautan dan daratannya yang indah.
+  Kepulauan Semiliar dapat direpresentasikan dengan matriks yang mempunyai $N$ baris, dinomori dari $0$ sampai $N - 1$, dan $M$ kolom, dinomori dari $0$ sampai $M - 1$.
+</p><p>
+  Untuk sebuah petak pada baris $i$ dan kolom $j$, apabila <em>bitwise AND</em> dari $i$ dan $j$ adalah $0$, maka petak tersebut merupakan daratan.
+  Sebaliknya, apabila <em>bitwise AND</em>-nya bukan $0$, maka petak tersebut merupakan lautan.
+</p>
+
+<p style="text-align: center;">
+  <img src="render/desc.png" style="height: 300px; width: 300px;"><br/>
+  <em>Kepulauan Semiliar untuk $N = 11$ dan $M = 11$, dengan petak yang mengandung gambar pohon merupakan petak daratan.</em>
+</p>
+
+<p>
+  Pak Dengklek mempunyai $Q$ rencana perjalanan.
+  Rencana perjalanan ke-$i$ dapat direpresentasikan dengan empat buah bilangan bulat $A_i$, $B_i$, $C_i$, dan $D_i$.
+</p><p>
+  Pada rencana perjalanan ke-$i$, Pak Dengklek ingin mengunjungi semua daratan dari baris $A_i$ hingga $C_i$, dan kolom $B_i$ hingga $D_i$.
+  Di samping itu, Pak Dengklek juga tidak ingin mengunjungi daratan selain dari yang direncanakan.
+  Daratan yang termasuk dalam rencana perjalanan boleh dikunjungi lebih dari sekali.
+</p><p>
+  Pak Dengklek sangatlah atletis, sehingga ia dapat berpindah dari suatu daratan ke daratan mana pun dalam satu lompatan.
+  Akan tetapi, untuk berpindah dari suatu daratan ke daratan lain yang bersisian (dengan salah satu dari empat arah mata angin), Pak Dengklek tidak perlu melompat.
+  Tentu saja, Pak Dengklek tidak boleh berada di lautan kapan pun juga karena lautan sangatlah berbahaya.
+</p><p>
+  Pada setiap awal rencana perjalanannya, Pak Dengklek berada di pantai yang terdapat di luar matriks.
+  Oleh karena itu, ia harus melompat ke salah satu daratan terlebih dahulu.
+  Untuk setiap rencana perjalanan, tentukan banyaknya lompatan minimum yang harus dilakukan Pak Dengklek!
+</p>
+
+<div class="spoiler">
+  Apa itu <em>bitwise AND</em>?
+  <div class="spoiler-content">
+    <em>Bitwise AND</em> dari dua buah bilangan bulat $x$ dan $y$ dapat dihitung dengan cara sebagai berikut.
+    <ol>
+      <li>Tulis $x$ dan $y$ dalam basis dua dengan panjang bit yang sama.</li>
+      <li>Lakukan operasi $\text{AND}$ untuk setiap pasang bit yang bersesuaian dengan:
+        <ul>
+          <li>$0 \text{ AND } 0 = 0$</li>
+          <li>$0 \text{ AND } 1 = 0$</li>
+          <li>$1 \text{ AND } 0 = 0$</li>
+          <li>$1 \text{ AND } 1 = 1$</li>
+        </ul>
+      </li>
+      <li>Ubah hasil $\text{AND}$ yang didapatkan kembali ke basis sepuluh.</li>
+    </ol>
+    Sebagai contoh, $6 \text{ AND } 10 = 2$.
+    Karena $6 = 0110$ dan $10 = 1010$ dalam basis dua, sehingga didapatkan <em>bitwise AND</em>-nya adalah $0010 = 2$ dalam basis sepuluh.
+  </div>
+</div>
+
+<h3>Batasan</h3>
+
+<ul>
+  <li>$1 \le N, M \le 10^9$</li>
+  <li>$1 \le Q \le 100\;000$</li>
+  <li>$0 \le A_i \le C_i \le N - 1$</li>
+  <li>$0 \le B_i \le D_i \le M - 1$</li>
+</ul>
+
+<h3>Subsoal</h3>
+
+<ol>
+  <li>&nbsp;&nbsp;(5 poin) Hanya berisi kasus uji berikut: <br/>
+    $N = 12$, $M = 12$, $Q = 3$, dan rencana perjalanannya $(A_i, B_i, C_i, D_i)$ secara berturut-turut adalah $(1, 1, 9, 8)$, $(8, 8, 11, 11)$, dan $(4, 3, 5, 9)$.
+  </li>
+  <li>(11 poin) $N, M, Q \le 200$</li>
+  <li>(10 poin) $N, M, Q \le 2000$, $A_i = C_i$</li>
+  <li>(20 poin) $N, M, Q \le 2000$</li>
+  <li>&nbsp;&nbsp;(4 poin) $A_i = 0$, $B_i = 0$</li>
+  <li>&nbsp;&nbsp;(6 poin) $A_i = C_i$, terdapat bilangan bulat $k_i$ sehingga $A_i = 2^{k_i}$.</li>
+  <li>(29 poin) $A_i = C_i$</li>
+  <li>(15 poin) Tidak ada batasan tambahan.</li>
+</ol>
+
+<h3>Masukan</h3>
+
+<p>
+  Masukan diberikan dalam format berikut:
+</p>
+
+<pre>
+N M Q
+A<sub>1</sub> B<sub>1</sub> C<sub>1</sub> D<sub>1</sub>
+A<sub>2</sub> B<sub>2</sub> C<sub>2</sub> D<sub>2</sub>
+⋮
+A<sub>Q</sub> B<sub>Q</sub> C<sub>Q</sub> D<sub>Q</sub>
+</pre>
+
+<h3>Keluaran</h3>
+
+<p>
+  Keluarkan $Q$ baris.
+  Baris ke-$i$ berisi banyaknya lompatan minimum untuk rencana perjalanan ke-$i$.
+</p>
+
+<h3>Contoh Masukan</h3>
+
+<pre>
+6 5 4
+0 0 3 2
+0 2 1 3
+0 1 2 4
+5 4 5 4
+</pre>
+
+<h3>Contoh Keluaran</h3>
+
+<pre>
+1
+1
+2
+0
+</pre>
+
+<h3>Penjelasan Contoh</h3>
+
+<p>
+  Berikut merupakan ilustrasi dari semua rencana perjalanan Pak Dengklek.
+</p><p>
+  <img src="render/sample-q1.png" style="height: 210px; width: 180px; margin-right: 10px;">
+  <img src="render/sample-q2.png" style="height: 210px; width: 180px; margin-right: 10px;">
+  <img src="render/sample-q3.png" style="height: 210px; width: 180px; margin-right: 10px;">
+  <img src="render/sample-q4.png" style="height: 210px; width: 180px; margin-right: 10px;">
+</p><p>
+  Pada rencana perjalanan ketiga, Pak Dengklek dapat melakukan hal-hal berikut.
+</p><ol>
+  <li>Pak Dengklek melompat ke daratan pada baris $0$ dan kolom $4$.</li>
+  <li>Pak Dengklek mengunjungi semua daratan yang direncanakan kecuali daratan pada baris $2$ dan kolom $1$ tanpa melompat.</li>
+  <li>Pak Dengklek melompat ke daratan pada baris $2$ dan kolom $1$.</li>
+</ol><p>
+  Pak Dengklek menggunakan lompatan sebanyak $2$ kali pada rencana perjalanan ini.
+</p>

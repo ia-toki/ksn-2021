@@ -1,0 +1,109 @@
+<!-- Title: Karakter Mandiri -->
+
+<h3>Deskripsi</h3>
+
+<p>
+  Pak Dengklek mempunyai sebuah kata mandiri $S$ yang terdiri dari $N$ karakter.
+  Suatu kata dikatakan mandiri apabila seluruh karakter dalam kata tersebut mandiri.
+  Suatu karakter dalam sebuah kata dikatakan mandiri apabila memenuhi dua syarat berikut:
+</p>
+<ul>
+  <li>berbeda dengan karakter sebelumnya atau merupakan karakter pertama dalam kata tersebut,</li>
+  <li>berbeda dengan karakter setelahnya atau merupakan karakter terakhir dalam kata tersebut.</li>
+</ul>
+<p>
+  Sebagai contoh, <code>ABAC</code> merupakan kata mandiri tetapi <code>AABC</code> bukan,
+  karena karakter pertama dan kedua dari <code>AABC</code> bukan merupakan karakter mandiri.
+</p>
+<p>
+  Rupanya, Pak Dengklek kurang puas dengan kata $S$.
+  Pak Dengklek ingin membuat kata $T$ dengan mengacak karakter yang ada di $S$.
+  Tentu saja, $T$ harus tetap merupakan kata mandiri.
+</p>
+<p>
+  Pak Dengklek lebih menyukai kata yang lebih kecil secara leksikografi.
+  Oleh karena itu, Pak Dengklek meminta bantuan Anda untuk mendapatkan $T$ yang terkecil secara leksikografi.
+  Bisa jadi tidak ada kemungkinan $T$ yang lebih kecil dari $S$ secara leksikografi,
+  pada kasus ini, Anda tidak perlu mengacak karakter pada $S$ sehingga $T = S$.
+</p>
+
+<div class="spoiler">
+  Apa itu leksikografi?
+  <div class="spoiler-content">
+    Kata $S$ dikatakan mempunyai leksikografi yang lebih kecil dari kata $T$ apabila $S$ muncul terlebih dahulu pada urutan kamus.
+    Lebih formalnya, kata $S$ yang terdiri dari $N$ karakter dikatakan mempunyai leksikografi yang lebih kecil dari
+    kata $T$ yang juga terdiri dari $N$ karakter apabila terdapat $i$ ($1 \le i \le N$)
+    sehingga $S_1 = T_1$, $S_2 = T_2$, $\ldots$, $S_{i-1} = T_{i-1}$, dan $S_i &lt; T_i$.
+  </div>
+</div>
+
+<h3>Batasan</h3>
+
+<ul>
+  <li>$1 \le N \le 100\;000$</li>
+  <li>$S$ hanya terdiri dari huruf besar.</li>
+  <li>Dijamin $S$ merupakan kata mandiri.</li>
+</ul>
+
+<h3>Subsoal</h3>
+
+<ol>
+  <li>
+    &nbsp;&nbsp;(8 poin) Hanya berisi kasus uji berikut:<br/>
+    $N = 7$ dan kata mandiri $S$-nya adalah <code>ACBACAB</code>.
+  </li>
+  <li>&nbsp;&nbsp;(6 poin) Tidak ada kemungkinan $T$ yang lebih kecil dari $S$ secara leksikografi.</li>
+  <li>(11 poin) $S$ hanya terdiri dari huruf <code>A</code> dan <code>B</code>.</li>
+  <li>(10 poin) Tidak ada karakter yang muncul lebih dari sekali di $S$.</li>
+  <li>(14 poin) $N \le 10$</li>
+  <li>(13 poin) $N \le 200$</li>
+  <li>(15 poin) $N \le 3000$</li>
+  <li>(23 poin) Tidak ada batasan tambahan.</li>
+</ol>
+
+<h3>Masukan</h3>
+
+<p>
+  Masukan diberikan dalam format berikut:
+</p><pre>
+N
+S
+</pre>
+
+<h3>Keluaran</h3>
+
+<p>
+  Keluarkan sebuah baris yang berisi sebuah kata $T$.
+</p>
+
+<h3>Contoh Masukan 1</h3>
+
+<pre>
+5
+BADBC
+</pre>
+
+<h3>Contoh Keluaran 1</h3>
+
+<pre>
+ABCBD
+</pre>
+
+<h3>Contoh Masukan 2</h3>
+
+<pre>
+3
+ABA
+</pre>
+
+<h3>Contoh Keluaran 2</h3>
+
+<pre>
+ABA
+</pre>
+
+<h3>Penjelasan Contoh 2</h3>
+
+<p>
+  Tidak ada kata mandiri lain yang bisa didapatkan selain $S$ itu sendiri.
+</p>

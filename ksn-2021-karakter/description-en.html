@@ -1,0 +1,109 @@
+<!-- Title: Self Character -->
+
+<h3>Description</h3>
+
+<p>
+  Pak Dengklek has an independent word $S$ which consists of $N$ characters.
+  A word is said to be independent if all its characters are independent.
+  A character in a word is said to be independent if fulfils two conditions below:
+</p>
+<ul>
+  <li>different from the previous character or is the first character in that word,</li>
+  <li>different from the next character or is the last character in that word.</li>
+</ul>
+<p>
+  For an instance, <code>ABAC</code> is an independent word but <code>AABC</code> is not,
+  because the first and the second character in <code>AABC</code> are not independent characters.
+</p>
+<p>
+  Apparently, Pak Dengklek is not satisfied with the word $S$.
+  Pak Dengklek wants to make a word $T$ by scrambling the characters in $S$.
+  Of course, $T$ must be an independent word.
+</p>
+<p>
+  Pak Dengklek prefers a lexicographically smaller word.
+  Therefore, Pak Dengklek asks for your help to obtain the lexicographically smallest $T$.
+  It is possible that there is no possible $T$ which is lexicographically smaller than $S$,
+  for this case, you do not need to scramble the characters in $S$ so that $T = S$.
+</p>
+
+<div class="spoiler">
+  What is lexicography?
+  <div class="spoiler-content">
+    A word $S$ is said to be lexicographically smaller than word $T$ if $S$ appeared before $T$ in the dictionary.
+    Formally, a word $S$ that consists of $N$ characters is said to be lexicographically smaller than
+    word $T$ that also consists of $N$ characters if there is $i$ ($1 \le i \le N$)
+    so that $S_1 = T_1$, $S_2 = T_2$, $\ldots$, $S_{i-1} = T_{i-1}$, and $S_i &lt; T_i$.
+  </div>
+</div>
+
+<h3>Constraints</h3>
+
+<ul>
+  <li>$1 \le N \le 100\;000$</li>
+  <li>$S$ only consists of uppercase letters.</li>
+  <li>It is guaranteed that $S$ is an independent word.</li>
+</ul>
+
+<h3>Subtasks</h3>
+
+<ol>
+  <li>
+    &nbsp;&nbsp;(8 points) Contains only the following test case:<br/>
+    $N = 7$ and the independent word $S$ is <code>ACBACAB</code>.
+  </li>
+  <li>&nbsp;&nbsp;(6 points) There is no possible $T$ which is lexicographically smaller than $S$.</li>
+  <li>(11 points) $S$ only consists of characters <code>A</code> and <code>B</code>.</li>
+  <li>(10 points) There is no character that appeared more than once in $S$.</li>
+  <li>(14 points) $N \le 10$</li>
+  <li>(13 points) $N \le 200$</li>
+  <li>(15 points) $N \le 3000$</li>
+  <li>(23 points) No additional constraints.</li>
+</ol>
+
+<h3>Input</h3>
+
+<p>
+  The input is given with the following format:
+</p><pre>
+N
+S
+</pre>
+
+<h3>Output</h3>
+
+<p>
+  Output a line that contains a word $T$.
+</p>
+
+<h3>Sample Input 1</h3>
+
+<pre>
+5
+BADBC
+</pre>
+
+<h3>Sample Output 1</h3>
+
+<pre>
+ABCBD
+</pre>
+
+<h3>Sample Input 2</h3>
+
+<pre>
+3
+ABA
+</pre>
+
+<h3>Sample Output 2</h3>
+
+<pre>
+ABA
+</pre>
+
+<h3>Explanation of Sample 2</h3>
+
+<p>
+  There is no other independent word that can be obtained other than $S$ itself.
+</p>

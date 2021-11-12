@@ -1,0 +1,178 @@
+<!-- Title: Balls Delivery -->
+
+<h3>Description</h3>
+
+<p>
+  At Barisan Hills, there exist $N$ hills numbered from $1$ to $N$ from west to east.
+  The $i$-th hill has a height of $H_i$.
+</p><p>
+  Pak Dengklek has a jetpack that allows him to fly in the air.	
+  Pak Dengklek can do the following <strong>simultaneously</strong> with his jetpack.
+</p><ul>
+  <li>
+    Traversing between hills, which does one of the three moves as follows.
+    <ul>
+      <li>Moves to the east hill next to the current hill. In other words, Pak Dengklek moves to hill $(i + 1)$ if he is currently on hill $i$.</li>
+      <li>Moves to the west hill next to the current hill. In other words, Pak Dengklek moves to hill $(i - 1)$ if he is currently on hill $i$.</li>
+      <li>Does not move from the current hill.</li>
+    </ul>
+  </li>
+  <li>
+    Change elevation, which does one of the three moves as follows.
+    <ul>
+      <li>Increases the elevation by one. This move requires fuel of $4$ units.</li>
+      <li>Decreases the elevation by one. This move requires fuel of $1$ unit.</li>
+      <li>Maintain the current elevation. This move requires fuel of $2$ units.</li>
+    </ul>
+  </li>
+</ul><p>
+  Naturally, when Pak Dengklek is on hill $i$, then his elevation has to be at least $H_i$.
+</p><p>
+  Pak Dengklek got a request to send $Q$ balls with his jetpack.
+  On the $j$-th delivery, Pak Dengklek will start from the top of hill $S_j$ and deliver a ball to the top of hill $T_j$.
+  For each delivery, Pak Dengklek wants to minimize the fuel to be used.
+  Help Pak Dengklek to calculate the minimum fuel required for each delivery!
+</p>
+
+<h3>Constraints</h3>
+
+<ul>
+  <li>$2 \le N \le 200\;000$</li>
+  <li>$1 \le H_i \le 10^9$</li>
+  <li>$1 \le Q \le 200\;000$</li>
+  <li>$1 \le S_j, T_j \le N$</li>
+  <li>$S_j \neq T_j$</li>
+</ul>
+
+<h3>Subtasks</h3>
+
+<ol>
+  <li>
+    &nbsp;&nbsp;(7 points) Contains only the following test case:<br/>
+    $N = 8$, $H = [1, 9, 3, 3, 5, 4, 8, 2]$, $Q = 4$, and the balls delivery $(S_j, T_j)$ are $(1, 8)$, $(3, 6)$, $(6, 4)$, and $(7, 2)$ respectively.
+  </li>
+  <li>&nbsp;&nbsp;(5 points) $S_j + 1 = T_j$</li>
+  <li>&nbsp;&nbsp;(6 points) $H_i = i$</li>
+  <li>(18 points) $N, Q \le 100$, $H_i \le 100$</li>
+  <li>(24 points) $N, Q \le 1000$</li>
+  <li>(13 points) $S_j = 1$</li>
+  <li>(27 points) No additional constraints.</li>
+</ol>
+
+<h3>Input</h3>
+
+<p>
+  The input is given with the following format:
+</p><pre>
+N
+H<sub>1</sub> H<sub>2</sub> … H<sub>N</sub>
+Q
+S<sub>1</sub> T<sub>1</sub>
+S<sub>2</sub> T<sub>2</sub>
+⋮
+S<sub>Q</sub> T<sub>Q</sub>
+</pre>
+
+<h3>Output</h3>
+
+<p>
+  Output $Q$ lines, where the $j$-th line denotes the minimum fuel required on the $j$-th delivery.
+</p>
+  
+
+<h3>Sample Input 1</h3>
+
+<pre>
+4
+9 1 8 2
+2
+1 3
+4 2
+</pre>
+
+<h3>Sample Output 1</h3>
+
+<pre>
+3
+31
+</pre>
+
+<h3>Explanation of Sample 1</h3>
+
+<p>
+  To deliver the first ball, Pak Dengklek will start his journey from the top of hill $1$ with the elevation of $9$.
+  Pak Dengklek will do the following moves:
+</p>
+<ol>
+  <li>
+    Move to the east and decrease the elevation by one.
+    This move requires fuel of $1$ and Pak Dengklek moves to hill $2$ with the elevation of $8$.
+  </li>
+  <li>
+    Moves to the east and maintains the elevation.
+    This move requires fuel of $2$ and Pak Dengklek moves to hill $3$ with the elevation of $8$.
+  </li>
+</ol>
+
+<p>
+  Pak Dengklek arrives on top of hill $3$ with the total fuel of $1 + 2 = 3$.
+  There is no other solution that uses less amount of fuel.
+</p>
+
+<p>
+  To deliver the second ball, Pak Dengklek will start his journey from the top of hill $4$ with the elevation of $2$.
+  Pak Dengklek will do the following moves:
+</p>
+<ol>
+  <li>
+    Increases elevation by one, $5$ times, without traversing any other hills.
+    This move requires fuel of $5 \times 4 = 20$ and Pak Dengklek stays at hill $4$ with the elevation of $7$.
+  </li>
+  <li>
+    Moves to the west and increases the elevation by one.
+    This move requires fuel of $4$ and Pak Dengklek moves to hill $3$ with the elevation of $8$.
+  </li>
+  <li>
+    Moves to the west and decreases the elevation by one.
+    This move requires fuel of $1$ and Pak Dengklek moves to hill $2$ with the elevation of $7$.
+  </li>
+  <li>
+    Decreases elevation by one, $6$ times, without traversing any other hills.
+    This move requires fuel of $6 \times 1 = 6$ and Pak Dengklek stays at hill $2$ with the elevation of $1$.
+  </li>
+</ol>
+
+<p>
+  Pak Dengklek arrives on top of hill $2$ with the total fuel of $20 + 4 + 1 + 6 = 31$.
+  There is no other solution that uses less amount of fuel.
+</p>
+
+<p>
+  Following are the illustrations for the first and second balls delivery.
+</p>
+
+<p>
+  <img src="render/roket-q-1.png" style="width: 150px; margin-right: 50px;" />
+  <img src="render/roket-q-2.png" style="width: 150px; margin-right: 50px;" />
+</p>
+
+<h3>Sample Input 2</h3>
+
+<pre>
+9
+1 2 3 2 1 2 3 2 1
+4
+1 9
+4 6
+2 6
+5 2
+</pre>
+
+<h3>Sample Output 2</h3>
+
+<pre>
+18
+4
+9
+9
+</pre>

@@ -1,0 +1,112 @@
+<!-- Title: Permutasi Mandiri -->
+
+<h3>Deskripsi</h3>
+
+<p>
+  Terdapat sebuah barisan $A$ berukuran $N$ yang masing-masing elemennya merupakan sebuah bilangan bulat dari $1$ sampai $N$.
+  Tidak ada bilangan yang muncul lebih dari sekali pada barisan $A$.
+</p><p>
+  Pak Dengklek ingin bermain dengan barisan ini.
+  Ia dapat melakukan operasi penghapusan dengan melakukan hal-hal berikut:
+</p>
+<ol>
+  <li>Pilih dua buah bilangan bersebelahan pada barisan $A$.</li>
+  <li>Dari kedua bilangan yang dipilih, hapus bilangan yang nilainya lebih besar.</li>
+</ol>
+<p>
+  Sebagai contoh, apabila barisannya adalah $[2, 5, 1, 3, 4]$, kemudian Pak Dengklek memilih bilangan $1$ dan $3$ yang bersebelahan pada barisan tersebut, maka Pak Dengklek akan menghapus $3$ dan barisan berubah menjadi $[2, 5, 1, 4]$.
+</p><p>
+  Pak Dengklek dapat melakukan operasi penghapusan berapa kali pun (bisa saja tidak melakukannya sama sekali) selama barisan mempunyai setidaknya dua buah bilangan.
+  Pak Dengklek pun penasaran, ada berapa banyak barisan berbeda yang dapat ia peroleh setelah melakukan operasi penghapusan tersebut.
+  Karena banyaknya barisan akhir berbeda bisa sangat banyak, hitung nilainya modulo $1\;000\;000\;007$.
+</p>
+
+<h3>Batasan</h3>
+
+<ul>
+  <li>$1 \le N \le 300\;000$</li>
+  <li>$1 \le A_i \le N$</li>
+  <li>Tidak ada bilangan yang muncul lebih dari sekali pada $A$.</li>
+</ul>
+
+<h3>Subsoal</h3>
+
+<ol>
+  <li>&nbsp;&nbsp;(8 poin) Hanya berisi kasus uji berikut: <br/>
+    $N = 6$, $A = [2, 5, 1, 3, 4, 6]$.</li>
+  <li>(20 poin) $N \le 200$</li>
+  <li>(13 poin) $N \le 2000$, $A_i = i$</li>
+  <li>&nbsp;&nbsp;(9 poin) $A_i = i$</li>
+  <li>(23 poin) $N \le 2000$</li>
+  <li>(27 poin) Tidak ada batasan tambahan.</li>
+</ol>
+
+<h3>Masukan</h3>
+
+<p>
+  Masukan diberikan dalam format berikut:
+</p>
+
+<pre>
+N
+A<sub>1</sub> A<sub>2</sub> … A<sub>N</sub>
+</pre>
+
+<h3>Keluaran</h3>
+
+<p>
+  Sebuah bilangan bulat yang menyatakan banyaknya barisan berbeda yang dapat diperoleh modulo $1\;000\;000\;007$.
+</p>
+
+<h3>Contoh Masukan 1</h3>
+
+<pre>
+3
+2 3 1
+</pre>
+
+<h3>Contoh Keluaran 1</h3>
+
+<pre>
+3
+</pre>
+
+<h3>Penjelasan Contoh 1</h3>
+
+<p>
+  Berikut adalah operasi-operasi penghapusan yang mungkin dilakukan pada barisan.
+</p>
+
+<ul>
+  <li>$[2, 3, 1]$ tanpa operasi penghapusan.</li>
+  <li>$[2, 3, 1] \rightarrow [2, 1]$ dengan memilih $2$ dan $3$. Memilih $3$ dan $1$ juga akan menghasilkan barisan yang sama.</li>
+  <li>$[2, 3, 1] \rightarrow [2, 1] \rightarrow [1]$</li>
+</ul>
+
+<h3>Contoh Masukan 2</h3>
+
+<pre>
+4
+2 1 4 3
+</pre>
+
+<h3>Contoh Keluaran 2</h3>
+
+<pre>
+6
+</pre>
+
+<h3>Penjelasan Contoh 2</h3>
+
+<p>
+  Berikut adalah operasi-operasi penghapusan yang mungkin dilakukan pada barisan.
+</p>
+
+<ul>
+  <li>$[2, 1, 4, 3]$</li>
+  <li>$[2, 1, 4, 3] \rightarrow [1, 4, 3]$</li>
+  <li>$[2, 1, 4, 3] \rightarrow [1, 4, 3] \rightarrow [1, 3]$</li>
+  <li>$[2, 1, 4, 3] \rightarrow [1, 4, 3] \rightarrow [1, 3] \rightarrow [1]$</li>
+  <li>$[2, 1, 4, 3] \rightarrow [2, 1, 3]$</li>
+  <li>$[2, 1, 4, 3] \rightarrow [2, 1, 3] \rightarrow [2, 1]$</li>
+</ul>

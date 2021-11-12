@@ -1,0 +1,168 @@
+<!-- Title: Counting Balls -->
+
+<h3>Description</h3>
+
+<p>
+  Pak Dengklek is a ball manufacturer.
+  To aid his work, he has ordered a machine that can count the number of balls he makes in a day.
+  With it, Pak Dengklek only needs to put in all the balls he made, then the machine will count and show an integer representing the number of balls that have entered the machine.
+</p>
+
+<p>
+  After receiving the machine, Pak Dengklek heard a rumor that the machine sometimes count balls incorrectly.
+  In order to be able to make a complaint if the machine has the problem, Pak Dengklek will record a video showing the performance of the machine received.
+</p>
+
+<p>
+  In the video, Pak Dengklek plans to put $Q$ balls into the machine one by one and check whether the integer shown matches the number of balls that have entered the machine.
+  In detail, Pak Dengklek will do the following.
+</p>
+<ol>
+  <li>Define $x$ as the number of balls that have entered the machine. Initially, $x$ is $0$.</li>
+  <li>Repeat the following steps $Q$ times.
+  <ol type="a">
+    <li>Put one ball into the machine and the value of $x$ is changed into $x + 1$.</li>
+    <li>If the machine shows the correct integer, which is $x$, continue this process.</li>
+    <li>If not, remove all balls from the machine, and the value of $x$ is reset to $0$.</li>
+  </ol>
+  </li>
+</ol>
+
+<p>
+  During the recording, it is possible that the machine will always show correct integers.
+  It is also possible that the machine will always show incorrect integers.
+</p>
+
+<p>
+  Because Pak Dengklek is busy, he asks for your help to record the video.
+  Help Pak Dengklek determine whether the machine's calculation is correct every time a ball entered the machine!
+</p>
+
+<h3>Constraints</h3>
+
+<ul>
+  <li>$1 \leq Q \leq 10\;000$</li>
+</ul>
+
+<h3>Subtasks</h3>
+
+<ol>
+  <li>(10 points) It is guaranteed that the machine always show correct integers.</li>
+  <li>(10 points) It is guaranteed that the machine always show incorrect integers.</li>
+  <li>(15 points) It is guaranteed that the machine always show integer $1$.</li>
+  <li>(65 points) No additional constraints.</li>
+</ol>
+
+<h3>Problem Type Information</h3>
+
+<p>
+  This problem is an "interactive" problem.
+  In this problem, you will interact with the judge's program through standard input (stdin) and standard output (stdout).
+  See the following interaction carefully.
+</p>
+
+<h3>Interaction</h3>
+
+<p>
+  Initially, you will be given an integer $Q$ in the following format:
+</p><pre>
+Q
+</pre>
+
+<p>
+  Then for $Q$ times, you will put in one ball and be given an integer $B$ in the following format:
+</p><pre>
+B
+</pre>
+
+<p>
+  This means that the machine shows integer $B$.
+  It is guaranteed that $B$ fits in signed $32$-bit integer.
+  For each of the inputs, output a string $S$ with value <code>BENAR</code> (means correct) if the machine shows the correct integer, and <code>SALAH</code> (means incorrect) otherwise.
+  Output in the following format:
+</p><pre>
+S
+</pre>
+
+<p>
+  If you output $S$ with the incorrect value, then you will receive Wrong Answer for the test case.
+  You will receive Accepted verdict if the value of every $S$ you output is correct.
+</p>
+
+<h3>Sample Interaction</h3>
+
+<table>
+  <tr>
+    <th>Input</th>
+    <th>Output</th>
+    <th>Explanation</th>
+  </tr>
+  <tr>
+    <td><pre>4</pre></td>
+    <td></td>
+    <td>This means that you will put $4$ balls into the machine.</td>
+  </tr>
+  <tr>
+    <td><pre>1</pre></td>
+    <td></td>
+    <td>You put in a ball and the machine shows integer $1$.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><pre>BENAR</pre></td>
+    <td>Because currently there is $1$ ball inside the machine, then the machine showed the correct integer.</td>
+  </tr>
+  <tr>
+    <td><pre>2</pre></td>
+    <td></td>
+    <td>You put in a ball and the machine shows integer $2$.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><pre>BENAR</pre></td>
+    <td>Because currently there are $2$ balls inside the machine, then the machine showed the correct integer.</td>
+  </tr>
+  <tr>
+    <td><pre>5</pre></td>
+    <td></td>
+    <td>You put in a ball and the machine shows integer $5$.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><pre>SALAH</pre></td>
+    <td>
+      Because currently there are $3$ balls inside the machine, then the machine showed the incorrect integer.
+      You remove all balls from the machine.
+    </td>
+  </tr>
+  <tr>
+    <td><pre>1</pre></td>
+    <td></td>
+    <td>You put in a ball and the machine shows integer $1$.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><pre>BENAR</pre></td>
+    <td>
+      Currently, there is $1$ ball inside the machine. Therefore, the machine showed the correct integer.
+    </td>
+  </tr>
+  <tr>
+    <td>(end)</td>
+    <td>(end)</td>
+    <td>The interaction ends, every of your output is correct, and you receive Accepted for this test case.</td>
+  </tr>
+</table>
+
+<h3>Warning</h3>
+
+<p>
+  Always flush every time your program gives an output.
+</p>
+
+<ul>
+  <li>For library <code>stdio.h</code> (<code>cstdio</code>):<pre>
+fflush(stdout);</pre></li>
+  <li>For library <code>iostream</code>:<pre>
+std::cout << std::flush;</pre></li>
+</ul>

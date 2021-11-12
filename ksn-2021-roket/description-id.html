@@ -1,0 +1,177 @@
+<!-- Title: Mengirim Bola -->
+
+<h3>Deskripsi</h3>
+
+<p>
+  Di Bukit Barisan terdapat $N$ bukit yang dinomori dari $1$ sampai $N$ dari barat ke timur.
+  Bukit $i$ memiliki ketinggian $H_i$.
+</p><p>
+  Pak Dengklek mempunyai sebuah ransel roket yang bisa membuat ia terbang di udara.
+  Pak Dengklek bisa melakukan hal-hal berikut secara <strong>bersamaan</strong> menggunakan ransel roketnya.
+</p><ul>
+  <li>
+    Bergerak secara melintang antar bukit, yaitu melakukan salah satu dari ketiga hal berikut.
+    <ul>
+      <li>Berpindah ke bukit yang ada di sebelah timur dari bukit sekarang. Dengan kata lain, Pak Dengklek berpindah ke bukit $i + 1$ apabila ia sedang berada di bukit $i$.</li>
+      <li>Berpindah ke bukit yang ada di sebelah barat dari bukit sekarang. Dengan kata lain, Pak Dengklek berpindah ke bukit $i - 1$ apabila ia sedang berada di bukit $i$.</li>
+      <li>Tidak berpindah dari bukit sekarang.</li>
+    </ul>
+  </li>
+  <li>
+    Mengubah ketinggiannya, yaitu melakukan salah satu dari ketiga hal berikut.
+    <ul>
+      <li>Menaikkan ketinggiannya sebesar satu. Hal ini memerlukan bahan bakar sebesar $4$ unit.</li>
+      <li>Menurunkan ketinggiannya sebesar satu. Hal ini memerlukan bahan bakar sebesar $1$ unit.</li>
+      <li>Mempertahankan ketinggiannya. Hal ini memerlukan bahan bakar sebesar $2$ unit.</li>
+    </ul>
+  </li>
+</ul><p>
+  Tentu saja ketika berada di bukit $i$, maka ketinggian Pak Dengklek di saat itu haruslah setidaknya setinggi $H_i$.
+</p><p>
+  Pak Dengklek mendapat permintaan untuk mengirimkan $Q$ buah bola menggunakan ransel roketnya.
+  Pada pengiriman ke-$j$, Pak Dengklek awalnya berada di puncak bukit $S_j$ dan akan mengirimkan bola ke puncak bukit $T_j$.
+  Tentu saja untuk setiap pengiriman, Pak Dengklek ingin meminimumkan bahan bakar yang digunakan.
+  Bantulah Pak Dengklek untuk menghitung bahan bakar minimum yang diperlukan untuk setiap pengiriman!
+</p>
+
+<h3>Batasan</h3>
+
+<ul>
+  <li>$2 \le N \le 200\;000$</li>
+  <li>$1 \le H_i \le 10^9$</li>
+  <li>$1 \le Q \le 200\;000$</li>
+  <li>$1 \le S_j, T_j \le N$</li>
+  <li>$S_j \neq T_j$</li>
+</ul>
+
+<h3>Subsoal</h3>
+
+<ol>
+  <li>
+    &nbsp;&nbsp;(7 poin) Hanya berisi kasus uji berikut:<br/>
+    $N = 8$, $H = [1, 9, 3, 3, 5, 4, 8, 2]$, $Q = 4$, dan pengiriman bola $(S_j, T_j)$ berturut-turut adalah $(1, 8)$, $(3, 6)$, $(6, 4)$, dan $(7, 2)$.
+  </li>
+  <li>&nbsp;&nbsp;(5 poin) $S_j + 1 = T_j$</li>
+  <li>&nbsp;&nbsp;(6 poin) $H_i = i$</li>
+  <li>(18 poin) $N, Q \le 100$, $H_i \le 100$</li>
+  <li>(24 poin) $N, Q \le 1000$</li>
+  <li>(13 poin) $S_j = 1$</li>
+  <li>(27 poin) Tidak ada batasan tambahan.</li>
+</ol>
+
+<h3>Masukan</h3>
+
+<p>
+  Masukan diberikan dalam format berikut:
+</p><pre>
+N
+H<sub>1</sub> H<sub>2</sub> … H<sub>N</sub>
+Q
+S<sub>1</sub> T<sub>1</sub>
+S<sub>2</sub> T<sub>2</sub>
+⋮
+S<sub>Q</sub> T<sub>Q</sub>
+</pre>
+
+<h3>Keluaran</h3>
+
+<p>
+  Keluarkan $Q$ buah baris, dengan baris ke-$j$ menyatakan bahan bakar minimum yang diperlukan untuk pengiriman ke-$j$.
+</p>
+
+<h3>Contoh Masukan 1</h3>
+
+<pre>
+4
+9 1 8 2
+2
+1 3
+4 2
+</pre>
+
+<h3>Contoh Keluaran 1</h3>
+
+<pre>
+3
+31
+</pre>
+
+<h3>Penjelasan Contoh 1</h3>
+
+<p>
+  Untuk mengirimkan bola pertama, Pak Dengklek akan memulai perjalanannya dari puncak bukit $1$ dengan ketinggian $9$.
+  Pak Dengklek akan melakukan gerakan-gerakan berikut:
+</p>
+<ol>
+  <li>
+    Bergerak ke timur dan menurunkan ketinggiannya sebesar satu.
+    Hal ini memerlukan bahan bakar sebesar $1$ dan Pak Dengklek berpindah ke bukit $2$ dengan ketinggian $8$.
+  </li>
+  <li>
+    Bergerak ke timur tanpa mengubah ketinggiannya.
+    Hal ini memerlukan bahan bakar sebesar $2$ dan Pak Dengklek berpindah ke bukit $3$ dengan ketinggian $8$.
+  </li>
+</ol>
+
+<p>
+  Pak Dengklek mencapai puncak bukit $3$ dengan bahan bakar $1 + 2 = 3$.
+  Tidak ada cara lain yang menggunakan bahan bakar yang lebih sedikit.
+</p>
+
+<p>
+  Untuk mengirimkan bola kedua, Pak Dengklek akan memulai perjalanannya dari puncak bukit $4$ dengan ketinggian $2$.
+  Pak Dengklek akan melakukan gerakan-gerakan berikut:
+</p>
+<ol>
+  <li>
+    Menaikkan ketinggiannya sebanyak $5$ kali tanpa mengubah posisi bukit.
+    Hal ini memerlukan bahan bakar sebesar $5 \times 4 = 20$ dan Pak Dengklek tetap berada di bukit $4$ dengan ketinggian $7$.
+  </li>
+  <li>
+    Bergerak ke barat dan menaikkan ketinggiannya sebesar satu.
+    Hal ini memerlukan bahan bakar sebesar $4$ dan Pak Dengklek berpindah ke bukit $3$ dengan ketinggian $8$.
+  </li>
+  <li>
+    Bergerak ke barat dan menurunkan ketinggiannya sebesar satu.
+    Hal ini memerlukan bahan bakar sebesar $1$ dan Pak Dengklek berpindah ke bukit $2$ dengan ketinggian $7$.
+  </li>
+  <li>
+    Menurunkan ketinggiannya sebanyak $6$ kali tanpa mengubah posisi bukit.
+    Hal ini memerlukan bahan bakar sebesar $6 \times 1 = 6$ dan Pak Dengklek sekarang berada di bukit $2$ dengan ketinggian $1$.
+  </li>
+</ol>
+
+<p>
+  Pak Dengklek mencapai puncak bukit $2$ dengan bahan bakar $20 + 4 + 1 + 6 = 31$.
+  Tidak ada cara lain yang menggunakan bahan bakar yang lebih sedikit.
+</p>
+
+<p>
+  Berikut adalah ilustrasi dari pengiriman bola pertama dan bola kedua.
+</p>
+
+<p>
+  <img src="render/roket-q-1.png" style="width: 150px; margin-right: 50px;" />
+  <img src="render/roket-q-2.png" style="width: 150px; margin-right: 50px;" />
+</p>
+
+<h3>Contoh Masukan 2</h3>
+
+<pre>
+9
+1 2 3 2 1 2 3 2 1
+4
+1 9
+4 6
+2 6
+5 2
+</pre>
+
+<h3>Contoh Keluaran 2</h3>
+
+<pre>
+18
+4
+9
+9
+</pre>

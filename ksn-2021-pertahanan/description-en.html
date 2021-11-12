@@ -1,0 +1,131 @@
+<!-- Title: Self Defence -->
+
+<h3>Description</h3>
+
+<p>
+  The country of Toki is plagued by disease!
+  Pak Dengklek, a renowned doctor, is concocting a vitamin prescription to be self-consumed by people at home.
+</p><p>
+  Pak Dengklek's prescription requires a daily intake of one vitamin, either vitamin A or vitamin B, for the next $N$ days.
+  To simplify, Pak Dengklek's prescription plan can be represented as a string $S$ with $N$ characters.
+  The $i$-th character is either one of:
+</p><ul>
+  <li> <code>A</code>: if vitamin A must be consumed on the $i$-th day;</li>
+  <li> <code>B</code>: if vitamin B must be consumed on the $i$-th day; or</li>
+  <li> <code>?</code>: if Pak Dengklek has yet to determine which vitamin to be consumed on the $i$-th day.</li>
+</ul><p>
+  Every day, if for the past $M$ days the vitamin type consumed are the same, then the immunity level increased by $1$ unit.
+  As an example, if $M = 2$ and $S =$<code>BAAA</code>, then Pak Dengklek's immunity will increase by $1$ unit on the third day, and increase by another $1$ unit on the fourth day.
+</p><p>
+  A prescription is said to be potent if the prescription can increase the immunity level by <strong>exactly</strong> $K$ units (no less and no more).
+</p><p>
+  Pak Dengklek wants to know the number of different potent prescriptions after Pak Dengklek completed his prescription plan.
+  Count the number modulo $1\;000\;000\;007$.
+</p>
+
+<h3>Constraints</h3>
+
+<ul>
+  <li>$1 \le N \le 3000$</li>
+  <li>$1 \le M \le N$</li>
+  <li>$0 \le K \le N$</li>
+  <li>Each character of $S$ is either one of <code>A</code>, <code>B</code>, or <code>?</code>.</li>
+</ul>
+
+<h3>Subtasks</h3>
+
+<ol>
+  <li>
+    &nbsp;&nbsp;(5 points) Contains only the following test case: <br/>
+    $N = 10$, $M = 3$, $K = 5$, $S = $ <code>????A???B?</code>.</li>
+  <li>&nbsp;&nbsp;(9 points) $N \le 20$</li>
+  <li>(11 points) $N \le 200$</li>
+  <li>&nbsp;&nbsp;(6 points) $M = 2$, $K = 0$</li>
+  <li>&nbsp;&nbsp;(9 points) $K = 0$</li>
+  <li>&nbsp;&nbsp;(8 points) $K \le 1$</li>
+  <li>(27 points) All characters of $S$ are <code>?</code>.</li>
+  <li>(25 points) No additional constraints.</li>
+</ol>
+
+<h3>Input</h3>
+
+<p>
+  The input is given with the following format:
+</p><pre>
+N M K
+S<sub>1</sub>S<sub>2</sub>…S<sub>N</sub>
+</pre>
+
+<h3>Output</h3>
+
+An integer representing the number of ways to complete the potent prescriptions modulo $1\;000\;000\;007$.
+
+<h3>Sample Input 1</h3>
+
+<pre>
+5 4 1
+?????
+</pre>
+
+<h3>Sample Output 1</h3>
+
+<pre>
+4
+</pre>
+
+<h3>Explanation of Sample 1</h3>
+
+<p>
+  In this sample, the potent prescriptions are:
+</p><pre>
+AAAAB
+ABBBB
+BAAAA
+BBBBA
+</pre>
+
+<h3>Sample Input 2</h3>
+
+<pre>
+5 2 2
+A????
+</pre>
+
+<h3>Sample Output 2</h3>
+
+<pre>
+6
+</pre>
+
+<h3>Explanation of Sample 2</h3>
+
+<p>
+  In this sample, vitamin A must be consumed on the first day.
+  The potent prescriptions which use vitamin A on the first day are:
+</p><pre>
+AAABA
+AABAA
+AABBA
+ABAAA
+ABBAA
+ABBBA
+</pre>
+
+<h3>Sample Input 3</h3>
+
+<pre>
+5 3 4
+AAAAA
+</pre>
+
+<h3>Sample Output 3</h3>
+
+<pre>
+0
+</pre>
+
+<h3>Explanation of Sample 3</h3>
+
+<p>
+  In this sample, the only prescription which conforms with Pak Dengklek's plan is not potent.
+</p>

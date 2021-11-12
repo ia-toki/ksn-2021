@@ -1,0 +1,130 @@
+<!-- Title: Pertahanan Mandiri -->
+
+<h3>Deskripsi</h3>
+
+<p>
+  Negara Toki sedang dilanda wabah penyakit!
+  Pak Dengklek, seorang dokter ternama, sedang meracik resep vitamin yang dapat diminum oleh masyarakat secara mandiri di rumah.
+</p><p>
+  Resep Pak Dengklek mengharuskan satu vitamin, antara vitamin A atau vitamin B, untuk diminum per harinya selama $N$ hari ke depan.
+  Untuk memudahkan, Pak Dengklek membuat sebuah rancangan resep yang dapat direpresentasikan sebagai string $S$ dengan $N$ karakter. Karakter ke-$i$ dapat berupa salah satu dari:
+</p><ul>
+  <li> <code>A</code>: apabila vitamin A harus diminum pada hari ke-$i$; </li>
+  <li> <code>B</code>: apabila vitamin B harus diminum pada hari ke-$i$; atau</li>
+  <li> <code>?</code>: apabila Pak Dengklek belum menentukan vitamin apa yang harus diminum pada hari ke-$i$.</li>
+</ul><p>
+  Setiap harinya, apabila selama $M$ hari ke belakang jenis vitamin yang diminum selalu sama, tingkat imunitasnya akan bertambah sebesar $1$ unit.
+  Sebagai contoh, apabila $M = 2$ dan $S =$ <code>BAAA</code>, maka imunitas Pak Dengklek akan bertambah $1$ unit pada hari ketiga, dan bertambah $1$ unit lagi di hari keempat.
+</p><p>
+  Sebuah resep akan manjur apabila resep tersebut dapat meningkatkan tingkat imunitas sebesar <strong>tepat</strong> $K$ unit (tidak kurang dan tidak lebih).
+</p><p>
+  Pak Dengklek ingin tahu ada berapa banyak resep manjur berbeda setelah Pak Dengklek melengkapi rancangan resepnya.
+  Hitunglah banyaknya cara modulo $1\;000\;000\;007$.
+</p>
+
+<h3>Batasan</h3>
+
+<ul>
+  <li>$1 \le N \le 3000$</li>
+  <li>$1 \le M \le N$</li>
+  <li>$0 \le K \le N$</li>
+  <li>Setiap karakter dari $S$ merupakan salah satu dari <code>A</code>, <code>B</code>, atau <code>?</code>.</li>
+</ul>
+
+<h3>Subsoal</h3>
+
+<ol>
+  <li>
+    &nbsp;&nbsp;(5 poin) Hanya berisi kasus uji berikut: <br/>
+    $N = 10$, $M = 3$, $K = 5$, $S = $ <code>????A???B?</code>.</li>
+  <li>&nbsp;&nbsp;(9 poin) $N \le 20$</li>
+  <li>(11 poin) $N \le 200$</li>
+  <li>&nbsp;&nbsp;(6 poin) $M = 2$, $K = 0$</li>
+  <li>&nbsp;&nbsp;(9 poin) $K = 0$</li>
+  <li>&nbsp;&nbsp;(8 poin) $K \le 1$</li>
+  <li>(27 poin) Semua karakter dari $S$ merupakan <code>?</code>.</li>
+  <li>(25 poin) Tidak ada batasan tambahan.</li>
+</ol>
+
+<h3>Masukan</h3>
+
+<p>
+  Masukan diberikan dalam format berikut:
+</p><pre>
+N M K
+S<sub>1</sub>S<sub>2</sub>…S<sub>N</sub>
+</pre>
+
+<h3>Keluaran</h3>
+
+Sebuah bilangan bulat yang menyatakan banyaknya cara melengkapi resep manjur modulo $1\;000\;000\;007$.
+
+<h3>Contoh Masukan 1</h3>
+
+<pre>
+5 4 1
+?????
+</pre>
+
+<h3>Contoh Keluaran 1</h3>
+
+<pre>
+4
+</pre>
+
+<h3>Penjelasan Contoh 1</h3>
+
+<p>
+  Pada contoh ini, resep-resep manjur adalah:
+</p><pre>
+AAAAB
+ABBBB
+BAAAA
+BBBBA
+</pre>
+
+<h3>Contoh Masukan 2</h3>
+
+<pre>
+5 2 2
+A????
+</pre>
+
+<h3>Contoh Keluaran 2</h3>
+
+<pre>
+6
+</pre>
+
+<h3>Penjelasan Contoh 2</h3>
+
+<p>
+  Pada contoh ini, vitamin A harus diminum pada hari pertama.
+  Resep-resep manjur yang menggunakan vitamin A pada hari pertamanya adalah:
+</p><pre>
+AAABA
+AABAA
+AABBA
+ABAAA
+ABBAA
+ABBBA
+</pre>
+
+<h3>Contoh Masukan 3</h3>
+
+<pre>
+5 3 4
+AAAAA
+</pre>
+
+<h3>Contoh Keluaran 3</h3>
+
+<pre>
+0
+</pre>
+
+<h3>Penjelasan Contoh 3</h3>
+
+<p>
+  Pada contoh ini, satu-satunya resep yang sesuai dengan rancangan Pak Dengklek tidak manjur.
+</p>

@@ -1,0 +1,161 @@
+<!-- Title: Binary Land -->
+
+<h3>Description</h3>
+
+<p>
+  The country of Toki is an archipelagic state consisting of $N$ islands, numbered from $1$ to $N$.
+  There exists a valuable treasure in each island in the country of Toki.
+  Island $i$ has a beauty value of $A_i$ and a treasure of value $B_i$.
+</p><p>
+  Pak Dengklek, an adventurer, wants to collect the treasures.
+  Due to strict sea transport regulations, Pak Dengklek can not necessarily travel from any island to any other island.
+  Pak Dengklek can travel from the $i$-th island to the $j$-th island, if <em>bitwise XOR</em> of $A_i$ and $A_j$ is greater than both $A_i$ and $A_j$;
+  or more formally, $A_i \text{ XOR } A_j > \max(A_i, A_j)$.
+  If the condition is not satisfied, then Pak Dengklek cannot travel from the $i$-th island to the $j$-th island.
+</p><p>
+  Pak Dengklek will take the treasure on the island that he visits.
+  Pak Dengklek can travel from island to island as many times as he wants, as long as he satisfies the traveling condition above.
+  An island can be visited more than once, but the treasure can only be taken once.
+</p><p>
+  Pak Dengklek is currently in an airplane, and will be parachuted to one of the $N$ islands.
+  Pak Dengklek has not decided on where he will be parachuted, and wonders of the treasures that he will take if he is parachuted on an island.
+  Therefore, Pak Dengklek asks you to determine the maximum total value of treasures that he can take if he starts collecting treasures from island $i$, for every $i$ from $1$ to $N$.
+</p>
+
+<div class="spoiler">
+  What is bitwise XOR?
+  <div class="spoiler-content">
+    <em>Bitwise XOR</em> of two integers $x$ and $y$ can be computed as follows.
+    <ol>
+      <li>Write $x$ and $y$ in base two with the same bit length.</li>
+      <li>Perform the $\text{XOR}$ operation for each corresponding bit pair:
+        <ul>
+          <li>$0 \text{ AND } 0 = 0$</li>
+          <li>$0 \text{ AND } 1 = 1$</li>
+          <li>$1 \text{ AND } 0 = 1$</li>
+          <li>$1 \text{ AND } 1 = 0$</li>
+        </ul>
+      </li>
+      <li>Convert the $\text{XOR}$ result back to base ten.</li>
+    </ol>
+    As an example, $6 \text{ XOR } 10 = 12$.
+    Because $6 = 0110$ and $10 = 1010$ in base two, the bitwise XOR obtained is $1100 = 12$ in base ten.
+  </div>
+</div>
+
+<h3>Constraints</h3>
+
+<ul>
+  <li>$1 \le N \le 100\;000$</li>
+  <li>$1 \le A_i \le 2^{30} - 1$</li>
+  <li>$1 \le B_i \le 10^9$</li>
+</ul>
+
+<h3>Subtasks</h3>
+
+<ol>
+  <li>&nbsp;&nbsp;(8 points) Contains only the following test case:<br/>
+    $N = 8$, $A = [6, 39, 11, 63, 3, 39, 1, 43]$, $B = [4, 8, 3, 7, 9, 1, 2, 2]$.</li>
+  <li>(13 points) $N \le 200$</li>
+  <li>(10 points) $N \le 2000$</li>
+  <li>&nbsp;&nbsp;(4 points) $A_1 = A_2 = \ldots = A_N$</li>
+  <li>&nbsp;&nbsp;(7 points) There exists integer $k_i$ such that $A_i = 2^{k_i}$.</li>
+  <li>(19 points) $A_i \le 2^{12} - 1$</li>
+  <li>(39 points) No additional constraints.</li>
+</ol>
+
+<h3>Input</h3>
+
+<p>
+  The input is given with the following format:
+</p>
+
+<pre>
+N
+A<sub>1</sub> A<sub>2</sub> … A<sub>N</sub>
+B<sub>1</sub> B<sub>2</sub> … B<sub>N</sub>
+</pre>
+
+<h3>Output</h3>
+
+<p>
+  Output $N$ lines.
+  The $i$-th line contains the maximum of the total value of treasures that he can take if he starts collecting treasures from the $i$-th island.
+</p>
+
+<h3>Sample Input 1</h3>
+
+<pre>
+3
+2 1 1
+20 30 10
+</pre>
+
+<h3>Sample Output 1</h3>
+
+<pre>
+60
+60
+60
+</pre>
+
+<h3>Explanation of Sample 1</h3>
+
+<p>
+  The followings are all possible travels.
+</p>
+
+<ul>
+  <li>Travel from island $1$ island to island $2$ (and vice versa) since $2 \text{ XOR } 1 = 3$ and $3 > \max(1, 2)$.</li>
+  <li>Travel from the $1$<sup>st</sup> island to the $3$<sup>rd</sup> island (vice versa) since $2 \text{ XOR } 1 = 3$ and $3 > \max(1, 2)$.</li>
+</ul>
+
+<p>
+  Therefore, if Pak Dengklek starts from:
+</p>
+<ul>
+  <li>the $1$<sup>st</sup> island: he can travel of island $1 \rightarrow 2 \rightarrow 1 \rightarrow 3$ and take treasures from all $3$ islands with total value of $20 + 30 + 10 = 60$; </li>
+  <li>the $2$<sup>nd</sup> island: he can travel of island $2 \rightarrow 1 \rightarrow 3$ and take all treasures; </li>
+  <li>the $3$<sup>rd</sup> island: he can travel of island $3 \rightarrow 1 \rightarrow 2$ and take all treasures. </li>
+</ul>
+
+<h3>Sample Input 2</h3>
+
+<pre>
+4
+5 4 4 5
+10 20 30 40
+</pre>
+
+<h3>Sample Output 2</h3>
+
+<pre>
+10
+20
+30
+40
+</pre>
+
+<h3>Explanation of Sample 2</h3>
+
+<p>
+  In this sample, Pak Dengklek cannot travel from any islands to any other islands, so that Pak Dengklek can only take the treasure from the island where he starts.
+</p>
+
+<h3>Sample Input 3</h3>
+
+<pre>
+5
+1 2 1 7 11
+20
+10
+30
+100
+100
+</pre>
+
+<h3>Sample Output 3</h3>
+
+<pre>
+60 60 60 200 200
+</pre>

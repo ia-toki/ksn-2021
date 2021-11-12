@@ -1,0 +1,107 @@
+<!-- Title: Binary Cipher -->
+
+<h3>Description</h3>
+
+<p>
+  Pak Dengklek has $Q$ mischievous ducks, numbered from $1$ to $Q$.
+  Pak Dengklek gives a number to each of his ducks, i.e. duck $i$ gets a number $P_i$.
+  However because Pak Dengklek's ducks are mischievous, they hide their own number using a binary cipher with key $K$.
+  The rule of the binary cipher for a key $K$ is changing a number $P_i$ into $C_i$ that is <em>bitwise OR</em> of $P_i$ and $K$.
+</p>
+<p>
+  Now Pak Dengklek only knows the values of $C_i$ for each of his ducks.
+  Fortunately, Pak Dengklek knows the used cipher key $K$.
+  Pak Dengklek asks for your help to restore the value of $P_i$ for each of his ducks.
+  If there are more than one possible numbers, you may output any possible number.
+  If there is no possible number, you have to tell Pak Dengklek by outputting $-1$.
+</p>
+
+<div class="spoiler">
+  What is bitwise OR?
+  <div class="spoiler-content">
+    <em>Bitwise OR</em> of two integers $x$ and $y$ can be computed as follows.
+    <ol>
+      <li>Write $x$ and $y$ in base two with the same bit length.</li>
+      <li>Perform the $\text{OR}$ operation for each corresponding bit pair:
+        <ul>
+          <li>$0 \text{ OR } 0 = 0$</li>
+          <li>$0 \text{ OR } 1 = 1$</li>
+          <li>$1 \text{ OR } 0 = 1$</li>
+          <li>$1 \text{ OR } 1 = 1$</li>
+        </ul>
+      </li>
+      <li>Convert the $\text{OR}$ result back to base ten.</li>
+    </ol>
+    As an example, $6 \text{ OR } 10 = 14$.
+    Because $6 = 0110$ and $10 = 1010$ in base two, the bitwise OR obtained is $1110 = 14$ in base ten.
+  </div>
+</div>
+
+<h3>Constraints</h3>
+
+<ul>
+  <li>$1 \le Q \le 100\;000$</li>
+  <li>$0 \le K, C_i \le 2^{30} - 1$</li>
+</ul>
+
+<h3>Subtasks</h3>
+
+<ol>
+  <li>
+    &nbsp;&nbsp;(9 points) Contains only the following test case:<br/>
+    $Q = 5$, $K = 2$, and the values of $C_i$ are $1$, $2$, $3$, $4$, and $5$ respectively.
+  </li>
+  <li>(11 points) $K = 0$</li>
+  <li>(12 points) $C_i \lt K$</li>
+  <li>(21 points) $Q \le 1000$, $K, C_i \le 2^{10} - 1$</li>
+  <li>(19 points) $K, C_i \le 2^{20} - 1$</li>
+  <li>(28 points) No additional constraints.</li>
+</ol>
+
+<h3>Input</h3>
+
+<p>
+  The input is given with the following format:
+</p><pre>
+Q K
+C<sub>1</sub>
+C<sub>2</sub>
+⋮
+C<sub>Q</sub>
+</pre>
+
+<h3>Output</h3>
+
+<p>
+  Output $Q$ lines.
+  The $i$-th line contains the possible value of $P_i$ or $-1$ if there is no possible value for $P_i$.
+</p>
+
+<h3>Sample Input</h3>
+
+<pre>
+3 5
+7
+9
+13
+</pre>
+
+<h3>Sample Output</h3>
+
+<pre>
+2
+-1
+12
+</pre>
+
+<h3>Explanation of Sample</h3>
+
+<p>
+  For duck $1$, the possible values of $P_1$ are $2$, $3$, $6$, and $7$. You may output any possible number.
+</p>
+<p>
+  For duck $2$, there is no possible value of $P_2$ so you have to output $-1$.
+</p>
+<p>
+  For duck $3$, the possible values of $P_3$ are $8$, $9$, $12$, and $13$. You may output any possible number.
+</p>
