@@ -9,7 +9,7 @@ Problem repository of **KSN 2021** (also known internationally as
 | ----- | --------------------- | ------------------ | ---------------- | ----------- |
 | 0A    | `ksn-2021-karakter`   | Karakter Mandiri   | Self Character   | batch       |
 | 0B    | `ksn-2021-sandi`      | Sandi Biner        | Binary Cipher    | batch       |
-| 0C    | `ksn-2021-hitung`     | Menghitunb Bola    | Counting Balls   | interactive |
+| 0C    | `ksn-2021-hitung`     | Menghitung Bola    | Counting Balls   | interactive |
 | 1A    | `ksn-2021-pertahanan` | Pertahanan Mandiri | Self Defence     | batch       |
 | 1B    | `ksn-2021-lautan`     | Lautan Biner       | Binary Sea       | batch       |
 | 1C    | `ksn-2021-warna`      | Mewarnai Bola      | Colouring Balls  | interactive |
